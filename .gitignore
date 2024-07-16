@@ -1,0 +1,13 @@
+# Hiding pyinstaller files
+dist/
+build/
+*.spec
+*.exe
+*.msi
+*.zip
+*.tar.gz
+*.tgz
+*.dmg
+*.app
+*.iso
+*.bin
