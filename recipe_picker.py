@@ -1,9 +1,21 @@
 """Recipe Picker"""
 import tkinter as tk
 import sqlite3
+import sys
+import os
 from PIL import ImageTk
 import tkmacosx
 from numpy import random
+
+#https://stackoverflow.com/questions/31836104/pyinstaller-and-onefile-how-to-include-an-image-in-the-exe-file
+def resource_path(relative_path):
+    """Get absolute path to resource for PyInstaller"""
+    try:
+        base_path = sys._MEIPASS2
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 # variables
 BG_COLOR = "#3d6466"
@@ -22,7 +34,7 @@ def fetch_db():
     # Row/Records are ingredients
     # Columns/fields are id index 0, name index 1, and quantity index 2, and unit index 3
 
-    connection = sqlite3.connect("data/recipes.db")
+    connection = sqlite3.connect(resource_path("data/recipes.db"))
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM sqlite_schema WHERE type='table';")
     all_tables = cursor.fetchall()
@@ -59,7 +71,7 @@ def load_frame1():
     frame1.tkraise() #tkraise() method raises the frame to the top of the stack
     frame1.pack_propagate(False)
     # frame1 widgets
-    logo_img = ImageTk.PhotoImage(file="assets/RRecipe_logo.png")
+    logo_img = ImageTk.PhotoImage(file=resource_path("assets/RRecipe_logo.png"))
     logo_widget = tk.Label(frame1, image=logo_img, bg=BG_COLOR)
     logo_widget.image = logo_img
     logo_widget.pack()
@@ -96,7 +108,7 @@ def load_frame2():
     title, ingredients = pre_process(table_name, table_records)
 
     # frame2 widgets
-    logo_img = ImageTk.PhotoImage(file="assets/RRecipe_logo_bottom.png")
+    logo_img = ImageTk.PhotoImage(file=resource_path("assets/RRecipe_logo_bottom.png"))
     logo_widget = tk.Label(frame2, image=logo_img, bg=BG_COLOR)
     logo_widget.image = logo_img
     logo_widget.pack(pady=20)

@@ -2,12 +2,7 @@
 dist/
 build/
 *.spec
-*.exe
-*.msi
-*.zip
-*.tar.gz
-*.tgz
-*.dmg
-*.app
-*.iso
-*.bin
+
+
+# Hiding MacOS files
+*.DS_Store
