@@ -6,7 +6,7 @@ import tkmacosx
 from numpy import random
 
 # variables
-bg_color = "#3d6466"
+BG_COLOR = "#3d6466"
 
 # functions
 def clear_widgets(frame):
@@ -60,14 +60,14 @@ def load_frame1():
     frame1.pack_propagate(False)
     # frame1 widgets
     logo_img = ImageTk.PhotoImage(file="assets/RRecipe_logo.png")
-    logo_widget = tk.Label(frame1, image=logo_img, bg=bg_color)
+    logo_widget = tk.Label(frame1, image=logo_img, bg=BG_COLOR)
     logo_widget.image = logo_img
     logo_widget.pack()
 
     tk.Label(
         frame1,
         text="ready for your random recipe?",
-        bg=bg_color,
+        bg=BG_COLOR,
         fg="white",
         font=("TkMenuFont", 14),
     ).pack()
@@ -97,14 +97,14 @@ def load_frame2():
 
     # frame2 widgets
     logo_img = ImageTk.PhotoImage(file="assets/RRecipe_logo_bottom.png")
-    logo_widget = tk.Label(frame2, image=logo_img, bg=bg_color)
+    logo_widget = tk.Label(frame2, image=logo_img, bg=BG_COLOR)
     logo_widget.image = logo_img
     logo_widget.pack(pady=20)
 
     tk.Label(
         frame2,
         text=title,
-        bg=bg_color,
+        bg=BG_COLOR,
         fg="white",
         font=("TkHeadingFont", 20),
     ).pack(pady=25)
@@ -138,8 +138,8 @@ root.title("Recipe Picker")
 root.eval("tk::PlaceWindow . center")
 
 # create a frame widget
-frame1 = tk.Frame(root, width=500, height=600, bg=bg_color)
-frame2 = tk.Frame(root, bg=bg_color)
+frame1 = tk.Frame(root, width=500, height=600, bg=BG_COLOR)
+frame2 = tk.Frame(root, bg=BG_COLOR)
 frame1.grid(row=0, column=0)
 
 for frame in (frame1, frame2):
