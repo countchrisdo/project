@@ -9,9 +9,9 @@ from numpy import random
 BG_COLOR = "#3d6466"
 
 # functions
-def clear_widgets(frame):
+def clear_widgets(curframe):
     """clear_widgets() function will clear the widgets in the frame"""
-    for widget in frame.winfo_children():
+    for widget in curframe.winfo_children():
         widget.destroy()
 
 def fetch_db():
